@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Book{% endblock %}
+
+{% block content %}
+    <section class="form-panel">
+        <p class="eyebrow">BOOK COLLECTION</p>
+        <h1>Edit book details</h1>
+
+        <form method="POST" class="book-form">
+            <label>Book title</label>
+            <input type="text" name="title" value="{{ book.title }}" required>
+
+            <label>Author</label>
+            <input type="text" name="author" value="{{ book.author }}" required>
+
+            <label>Category</label>
+            <input type="text" name="category" value="{{ book.category }}" required>
+
+            <label>Quantity</label>
+            <input type="number" name="quantity"
+                   min="0" value="{{ book.quantity }}" required>
+
+            <div class="form-actions">
+                <button class="button" type="submit">Save changes</button>
+                <a class="button secondary" href="{{ url_for('home') }}">Cancel</a>
+            </div>
+        </form>
+    </section>
+{% endblock %}
